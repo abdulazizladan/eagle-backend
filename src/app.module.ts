@@ -4,6 +4,9 @@ import { AppService } from './app.service';
 import { InventoryModule } from './inventory/inventory.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { OrganizationModule } from './organization/organization.module';
+import { StaffModule } from './staff/staff.module';
+import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -15,6 +18,9 @@ import { OrganizationModule } from './organization/organization.module';
       synchronize: true,
     }),
     OrganizationModule,
+    StaffModule,
+    UserModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -9,31 +9,31 @@ export class InventoryController {
   constructor(private readonly inventoryService: InventoryService) {}
 
   @ApiOperation({summary: "Add a new item"})
-  @Post()
+  @Post('item')
   create(@Body() createInventoryDto: CreateInventoryDto) {
     return this.inventoryService.create(createInventoryDto);
   }
 
   @ApiOperation({summary: "Get complete inventory"})
-  @Get()
+  @Get('items')
   findAll() {
     return this.inventoryService.findAll();
   }
 
   @ApiOperation({summary: "Get item details"})
-  @Get(':id')
+  @Get('item/:id')
   findOne(@Param('id') id: string) {
     return this.inventoryService.findOne(+id);
   }
 
   @ApiOperation({summary: "Update item details"})
-  @Patch(':id')
+  @Patch('item/:id')
   update(@Param('id') id: string, @Body() updateInventoryDto: UpdateInventoryDto) {
     return this.inventoryService.update(+id, updateInventoryDto);
   }
 
   @ApiOperation({summary: "Delete item"})
-  @Delete(':id')
+  @Delete('item/:id')
   remove(@Param('id') id: string) {
     return this.inventoryService.remove(+id);
   }

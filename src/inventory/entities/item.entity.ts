@@ -1,6 +1,6 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Inventory } from "./inventory.entity";
+import { Activity } from "./activity.entity";
 
 @Entity()
 export class Item {
@@ -14,6 +14,9 @@ export class Item {
     description: string;
 
     @Column({})
+    currentQuantity: number;
+
+    @Column({})
     unit: string;
 
     @Column({})
@@ -24,4 +27,7 @@ export class Item {
 
     @ManyToOne(() => Inventory, inventory => inventory.items)
     inventory: Inventory;
+
+    @OneToMany((type) => Activity, activies => activies.item)
+    actiities: Activity[];
 }

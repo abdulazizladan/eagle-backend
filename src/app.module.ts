@@ -7,6 +7,10 @@ import { OrganizationModule } from './organization/organization.module';
 import { StaffModule } from './staff/staff.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { ProjectModule } from './project/project.module';
+import { VendorModule } from './vendor/vendor.module';
+import { TrainingModule } from './training/training.module';
+import { AssetsModule } from './assets/assets.module';
 
 @Module({
   imports: [
@@ -21,6 +25,10 @@ import { AuthModule } from './auth/auth.module';
     StaffModule,
     UserModule,
     AuthModule,
+    ProjectModule,
+    VendorModule,
+    TrainingModule,
+    AssetsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

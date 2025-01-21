@@ -1,23 +1,24 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Staff } from "./staff.entity";
 
-@Entity({})
+@Entity({name: 'StaffContact'})
 export class Contact {
-    @PrimaryColumn({unique: true})
-    contactId: string;
 
-    @Column({})
+    @PrimaryGeneratedColumn()
+    id:number;
+
+    @Column({nullable: true})
     phone: number;
 
-    @Column({})
+    @Column({nullable: true})
     state: string;
 
-    @Column({})
+    @Column({nullable: true})
     lga: string;
 
-    @Column({})
+    @Column({nullable: true})
     streetAddress: string;
 
-    @OneToOne(() => Staff, (staff) => staff.contact) 
+    @OneToOne((type) => Staff, (staff) => staff.contact)
     staff: Staff;
 }

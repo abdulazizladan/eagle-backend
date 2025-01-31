@@ -2,7 +2,7 @@ import { Column, Entity, ManyToOne, PrimaryColumn } from "typeorm";
 import { ActivityType } from "../enum/activity.enum";
 import { Item } from "./item.entity";
 
-@Entity({})
+@Entity({name: 'Activity'})
 export class Activity {
     @PrimaryColumn({})
     id: number;

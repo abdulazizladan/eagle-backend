@@ -72,8 +72,23 @@ export class VendorService {
   async remove(id: number) {
     try {
       const vendor  = await this.vendorRepository.find({where: {id}})
+      if(vendor) {
+        this.vendorRepository.remove(vendor)
+        return {
+          success: true,
+          data: vendor,
+          message: "Vendor successfully removed"
+        }
+      }else {
+        return {
+
+        }
+      }
     } catch(error) {
-      
+      return {
+        success: false,
+        message: error.message
+      }
     }
    
   }

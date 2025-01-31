@@ -9,7 +9,7 @@ A simple resourse planning application
     - [ ] Sites
       - [ ] Add site
       - [ ] Edit site
-      - [ ] Remove site (not delete)
+      - [ ] Remove site(not delete)
     - [ ] Buildings
       - [ ] Add building
       - [ ] Edit building
@@ -17,7 +17,7 @@ A simple resourse planning application
     - [ ] Machinery
       - [ ] Add machine
       - [ ] Edit machine
-      - [ ] Remove machine (not remove)
+      - [ ] Remove machine(not remove)
     - [ ] Vehicles
       - [ ] Add vehicle
       - [ ] Edit vehicle
@@ -25,9 +25,32 @@ A simple resourse planning application
     - [ ] Furniture
     - [ ] Electronics
   - [ ] Inventory
+    - [ ]  Item
+    - name
+    - description
+    - unit price
+      - [ ]  Add Item
+      - [ ]  Topup or withdraw items
   - [ ] Organization
+    - [ ] Units
+    - [ ] Add Organization
+    - [ ] Edit organization
   - [ ] Project
+    - [ ] Milestone
+    - [ ] Add Project
+    - [ ] Edit Project
+    - [ ] Remove project
   - [ ] Staff
+    - [ ] Add Staff
+    - [ ] Edit staff
+    - [ ] Retire staff
   - [ ] Training
+    - [ ] Add training program
+    - [ ] Add attendance
   - [ ] User
+    - [ ] Add User and user role
+    - [ ] Edit user
+    - [ ] Deactivate/suspend user
   - [ ] Vendor
+    - [ ] Add vendor and vendor detail
+    - [ ] Edit vendorRemove vendor

@@ -4,12 +4,14 @@ import { ProjectController } from './project.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Project } from './entities/project.entity';
 import { Milestone } from './entities/milestone.entity';
+import { Task } from './entities/task.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
       Project,
-      Milestone
+      Milestone,
+      Task
     ])
   ],
   controllers: [ProjectController],

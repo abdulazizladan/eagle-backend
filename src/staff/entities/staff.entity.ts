@@ -4,8 +4,9 @@ import { MedicalInfo } from "./medicalInfo.entity";
 import { Credential } from "./credential.entity";
 import { EmploymentRecord } from "./employment-Record.entity";
 import { Promotion } from "./promotion.entity";
+import { StaffStatus } from "../enum/staff-status.enum";
 
-@Entity({})
+@Entity({name: "Staff"})
 export class Staff {
     @PrimaryColumn({unique: true, nullable: false})
     id: string;
@@ -17,17 +18,17 @@ export class Staff {
     middleName: string;
 
     @Column({})
-    lastName: string;
+    lastName: string; 
 
     @Column({})
-    dateOfBirth: Date;
+    dateOfBirth: Date; // date of birth
 
     @Column({})
-    gender: string;
+    gender: string; // male/female
 
     @OneToOne((type) => Contact, {cascade: true}) 
     @JoinColumn()
-    contact: Contact;
+    contact: Contact; 
 
     @OneToOne((type) => MedicalInfo, {cascade: true})
     @JoinColumn()
@@ -35,6 +36,10 @@ export class Staff {
 
     @OneToMany((type) => Promotion, (promotion) => promotion.staff, {cascade: true})
     promotions: Promotion[];
+
+    @Column({})
+    status: StaffStatus;
+
 
     @OneToMany((type) => EmploymentRecord, (employmentRecord) => employmentRecord.staff, {cascade: true})
     employmentHistory: EmploymentRecord[];

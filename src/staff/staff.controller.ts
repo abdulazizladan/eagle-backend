@@ -29,7 +29,7 @@ export class StaffController {
   @ApiOperation({summary: 'Update staff record'})
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateStaffDto: UpdateStaffDto) {
-    return this.staffService.update(+id, updateStaffDto);
+    return this.staffService.update(id, updateStaffDto);
   }
 
   @ApiOperation({summary: 'Delete staff record'})

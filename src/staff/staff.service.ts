@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateStaffDto } from './dto/create-staff.dto';
 import { UpdateStaffDto } from './dto/update-staff.dto';
 import { Repository } from 'typeorm';
@@ -80,11 +80,7 @@ export class StaffService {
           message: 'Staff details found'
         }
       }else {
-        return {
-          success: true,
-          data: null,
-          message: 'Staff details not found'
-        }
+        throw new NotFoundException(`Site with ID ${id} not found`);
       }
 
     }catch(error) {
@@ -95,8 +91,14 @@ export class StaffService {
     }
   }
 
-  update(id: number, updateStaffDto: UpdateStaffDto) {
-    return `This action updates a #${id} staff`;
+  async update(id: string, updateStaffDto: UpdateStaffDto) {
+    const staff = await this.staffRepository.findOne({where: { id } });
+    if(!staff) {
+      throw new NotFoundException(`Staff with ID ${id} not found`)
+    }else {
+      this.staffRepository.merge(staff, updateStaffDto);
+      return await this.staffRepository.save(staff);
+    }
   }
 
   async remove(id: string): Promise<Staff | any> {
@@ -105,10 +107,7 @@ export class StaffService {
         {where: {id}}
       )
       if(!staff){
-        return {
-          success: true,
-          message: 'Staff record not found'
-        }
+        throw new NotFoundException(`Site with ID ${id} not found`);
       }else{
         this.staffRepository.remove(staff);
         return {

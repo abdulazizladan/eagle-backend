@@ -1,7 +1,7 @@
 import { Column, Entity, JoinColumn, OneToMany, PrimaryColumn } from "typeorm";
 import { Milestone } from "./milestone.entity";
 
-@Entity({})
+@Entity({name: 'Project'})
 export class Project {
     @PrimaryColumn({unique: true, nullable: false})
     id: string;

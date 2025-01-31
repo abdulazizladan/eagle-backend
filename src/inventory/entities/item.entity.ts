@@ -2,7 +2,7 @@ import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "ty
 import { Inventory } from "./inventory.entity";
 import { Activity } from "./activity.entity";
 
-@Entity()
+@Entity({name: 'Item'})
 export class Item {
     @PrimaryGeneratedColumn({unsigned: true})
     id: number;

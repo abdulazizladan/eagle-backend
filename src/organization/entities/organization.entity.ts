@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryColumn, OneToOne, JoinColumn, OneToMany } from "
 import { Contact } from "./contact.entity";
 import { Unit } from "./unit.entity";
 
-@Entity({})
+@Entity({name: 'Organization'})
 export class Organization {
 
     @PrimaryColumn({default: 1})

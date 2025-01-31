@@ -1,7 +1,7 @@
 import { Column, Entity, ManyToOne, PrimaryColumn } from "typeorm";
 import { Staff } from "./staff.entity";
 
-@Entity({})
+@Entity({name: 'StaffPromotion'})
 export class Promotion {
     @PrimaryColumn({})
     id: string;
